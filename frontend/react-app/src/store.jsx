@@ -6,7 +6,7 @@ import { allUsersReducer, forgotPasswordReducer,
          profileReducer, 
          userDetailsReducer, 
          userReducer } from "./reducers/userReducer.jsx";
-import { cartReducer } from "./reducers/cartReducer_temp..jsx";
+import { cartReducer } from "./reducers/cartReducer.jsx";
 import { allOrdersReducer, myOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer } from "./reducers/orderReducer.jsx";
 
 const reducer = combineReducers({
