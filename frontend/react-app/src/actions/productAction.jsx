@@ -31,7 +31,7 @@ import {
 } from "../constants/productConstants.jsx";
 
 // ✅ Fetch Products with Pagination
-/*export const getProduct = (keyword = "", currentPage = 1, category) => async (dispatch) => {
+export const getProduct = (keyword = "", currentPage = 1, category) => async (dispatch) => {
     try {
         dispatch({ type: ALL_PRODUCT_REQUEST });
 
@@ -59,39 +59,7 @@ import {
             payload: error.response?.data?.message || "Something went wrong",
         });
     }
-};*/
-
-export const getProduct = (keyword = "", currentPage = 1, category) => async (dispatch) => {
-  try {
-      dispatch({ type: ALL_PRODUCT_REQUEST });
-
-      const backendUrl = import.meta.env.VITE_BACKEND_URL; // Use Vite environment variable
-
-      let link = `${backendUrl}/api/v1/products?keyword=${keyword}&page=${currentPage}`;
-
-      if (category) {
-          link += `&category=${category}`;
-      }
-
-      const { data } = await axios.get(link);
-
-      dispatch({
-          type: ALL_PRODUCT_SUCCESS,
-          payload: {
-              products: data.products,
-              productsCount: data.productsCount,
-              resultPerPage: data.resultPerPage,
-          },
-      });
-
-  } catch (error) {
-      dispatch({
-          type: ALL_PRODUCT_FAIL,
-          payload: error.response?.data?.message || "Something went wrong",
-      });
-  }
 };
-
 
 // Get All Products For Admin
 export const getAdminProduct = () => async (dispatch) => {
